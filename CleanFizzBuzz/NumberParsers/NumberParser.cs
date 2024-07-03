@@ -8,7 +8,7 @@ public class NumberParser : INumberParser
     public string Parse(int number)
     {
         if (number % Divisor == 0)
-            return Word;
+            return number.ToString();
 
         throw new Exception($"Number is not divisible by {Divisor}.");
     }
