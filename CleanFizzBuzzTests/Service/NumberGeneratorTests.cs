@@ -14,7 +14,7 @@ public class NumberGeneratorTests
         var numberGenerator = new NumberGenerator();
         
         // Act
-        var numbers = numberGenerator.GetNumbers(1, 100);
+        var numbers = numberGenerator.GetFizzBuzzNumbers(1, 100);
         
         // Assert
         numbers.Count().ShouldBe(100);
