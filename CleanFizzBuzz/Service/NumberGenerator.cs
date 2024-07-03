@@ -4,6 +4,7 @@ public class NumberGenerator
 {
     public IEnumerable<string> GetNumbers(int start, int end)
     {
-        throw new NotImplementedException();
+        var inputRange = Enumerable.Range(start, end).ToList();
+        return inputRange.Select(x => x.ToString());
     }
 }
