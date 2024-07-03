@@ -12,13 +12,13 @@ public class FizzNumberParserTests
     {
  
         // Arrange
-        var numberParser = new FizzBuzzNumberParser();
+        var numberParser = new FizzNumberParser();
         
         // Act
         var result = numberParser.Parse(number);
         
         // Assert
-        result.ShouldBe("FizzBuzz");
+        result.ShouldBe("Fizz");
     }
     
     [TestCase(16)]
@@ -27,13 +27,11 @@ public class FizzNumberParserTests
     public void Number_Should_Not_Be_Divisible_By_5_and_3(int number)
     {
         // Arrange
-        var numberParser = new FizzBuzzNumberParser();
+        var numberParser = new FizzNumberParser();
         
-        // Act
-        var result = numberParser.Parse(number);
-        
-        // Assert
-        result.ShouldBe(number.ToString());
+        // Act & Assert
+        Should.Throw<Exception>(() => numberParser.Parse(number))
+            .Message.ShouldBe($"This number is not a Fizz number.");
     }
 
 }

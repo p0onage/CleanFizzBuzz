@@ -10,7 +10,7 @@ public class FizzBuzzNumberParserTests
     public void Fizz_Number_Should_Be_Divisible_By_3()
     {
         // Arrange
-        var numberParser = new BuzzNumberParser();
+        var numberParser = new FizzBuzzNumberParser();
         
         // Act
         var result = numberParser.Parse(3);
@@ -23,13 +23,11 @@ public class FizzBuzzNumberParserTests
     public void Fizz_Number_Should_Not_Be_Divisible_By_2()
     {
         // Arrange
-        var numberParser = new BuzzNumberParser();
+        var numberParser = new FizzBuzzNumberParser();
         
-        // Act
-        var result = numberParser.Parse(2);
-        
-        // Assert
-        result.ShouldBe("2");
+        // Act & Assert
+        Should.Throw<Exception>(() => numberParser.Parse(2))
+            .Message.ShouldBe($"This number is not a FizzBuzz number.");
     }
 
 }

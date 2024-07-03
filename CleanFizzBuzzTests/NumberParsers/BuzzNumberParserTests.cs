@@ -20,16 +20,14 @@ public class BuzzNumberParserTests
     }
     
     [Test]
-    public void Buzz_Number_Should_Not_Be_Divisible_By_3()
+    public void Buzz_Number_Should_Not_Throw_Exception_If_Not_Divisible_By_3()
     {
         // Arrange
         var numberParser = new BuzzNumberParser();
         
-        // Act
-        var result = numberParser.Parse(3);
-        
-        // Assert
-        result.ShouldBe("3");
+        // Act & Assert
+        Should.Throw<Exception>(() => numberParser.Parse(3))
+            .Message.ShouldBe($"This number is not a Buzz number.");
     }
 
 }
